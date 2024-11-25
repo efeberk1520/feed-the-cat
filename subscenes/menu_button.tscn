@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd3xobn4w4hsw"]
+
+[ext_resource type="FontFile" uid="uid://dw48qbo37lh83" path="res://fonts/Mystery Font.ttf" id="1_2rwca"]
+[ext_resource type="Script" path="res://scripts/menu_button.gd" id="2_348n0"]
+
+[node name="menu_button" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2rwca")
+theme_override_font_sizes/font_size = 56
+text = "PLAY"
+flat = true
+script = ExtResource("2_348n0")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

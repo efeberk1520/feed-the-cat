@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://b060px0glqx54"]
+
+[ext_resource type="Script" path="res://scripts/working.gd" id="1_5i66p"]
+[ext_resource type="PackedScene" uid="uid://cgpgbcd402nw" path="res://subscenes/menus.tscn" id="1_6oue4"]
+[ext_resource type="Texture2D" uid="uid://f74bj3qxupgt" path="res://power.png" id="2_qk7hh"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="3_y2c5k"]
+[ext_resource type="PackedScene" uid="uid://bdpr4653rm2u1" path="res://subscenes/virus.tscn" id="4_10pji"]
+[ext_resource type="AudioStream" uid="uid://nxnby1haoo0s" path="res://sound/music/working.wav" id="6_ev3ro"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7njuy"]
+
+[node name="working" type="Node2D"]
+script = ExtResource("1_5i66p")
+
+[node name="Control" parent="." instance=ExtResource("1_6oue4")]
+visibility_layer = 512
+z_index = 1
+offset_right = -7.62939e-06
+offset_bottom = 0.0
+twhite = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.117647, 0.117647, 0.117647, 1)
+position = Vector2(576, 324)
+scale = Vector2(1152, 648)
+mesh = SubResource("BoxMesh_7njuy")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+modulate = Color(4.57242e-07, 0.363955, 0.439285, 1)
+self_modulate = Color(0, 0.839216, 1, 1)
+position = Vector2(576, 324)
+scale = Vector2(1102.23, 591.165)
+mesh = SubResource("BoxMesh_7njuy")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(128, 128)
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(1024, 512)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1008.0
+offset_top = 504.0
+offset_right = 1032.0
+offset_bottom = 528.0
+scale = Vector2(3.5, 3.5)
+script = ExtResource("3_y2c5k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+position = Vector2(12, 12)
+scale = Vector2(1.35714, 1.35714)
+texture = ExtResource("2_qk7hh")
+
+[node name="TouchScreenButton" parent="." instance=ExtResource("4_10pji")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ev3ro")
+autoplay = true
+
+[connection signal="button_down" from="Button" to="Button" method="_on_pressed"]

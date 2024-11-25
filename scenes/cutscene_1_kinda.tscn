@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://du8hrpdlf4016"]
+
+[ext_resource type="FontFile" uid="uid://dw48qbo37lh83" path="res://fonts/Mystery Font.ttf" id="1_q85wm"]
+[ext_resource type="PackedScene" uid="uid://dd3xobn4w4hsw" path="res://subscenes/menu_button.tscn" id="2_5pxsm"]
+
+[node name="cutscene 1 kinda" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="money" type="Label" parent="."]
+visibility_layer = 512
+z_index = 1
+layout_mode = 0
+offset_left = 88.0
+offset_top = 32.0
+offset_right = 2164.0
+offset_bottom = 1200.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_q85wm")
+theme_override_font_sizes/font_size = 56
+text = "Now your cat too
+ happy and your boss skeleton
+ sad about this
+ and attacks you survive and
+ WIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="menu_button" parent="." instance=ExtResource("2_5pxsm")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = 124.0
+offset_right = 371.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BOSS FIGHT"
+scene = "res://scenes/boss.tscn"
+change = false

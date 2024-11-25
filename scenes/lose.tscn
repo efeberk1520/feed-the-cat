@@ -1,0 +1,163 @@
+[gd_scene load_steps=21 format=3 uid="uid://b8jt3mj7yuvka"]
+
+[ext_resource type="Script" path="res://scripts/lose.gd" id="1_dkgc1"]
+[ext_resource type="Texture2D" uid="uid://dk3dehekmlogk" path="res://cutscene lose-Sheet.png" id="3_0pgu0"]
+[ext_resource type="FontFile" uid="uid://dw48qbo37lh83" path="res://fonts/Mystery Font.ttf" id="3_oakqr"]
+[ext_resource type="PackedScene" uid="uid://dd3xobn4w4hsw" path="res://subscenes/menu_button.tscn" id="4_vv75a"]
+[ext_resource type="AudioStream" uid="uid://hd1jc3yfspla" path="res://sound/music/loser.wav" id="5_40xpt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu6s2"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(0, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_makd2"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(192, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cthmg"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(384, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofjis"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(576, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nra4"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(0, 108, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqafc"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(192, 108, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2106q"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(384, 108, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6yh8"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(576, 108, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n1kf"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(0, 216, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4cyv"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(192, 216, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfud7"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(384, 216, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3y4b"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(576, 216, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v4uk"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(0, 324, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rp1iq"]
+atlas = ExtResource("3_0pgu0")
+region = Rect2(192, 324, 192, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bo85m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu6s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_makd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cthmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofjis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nra4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqafc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2106q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6yh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2n1kf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4cyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfud7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3y4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v4uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rp1iq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="lose_sad_Cat" type="Node2D"]
+script = ExtResource("1_dkgc1")
+
+[node name="Loser" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_40xpt")
+volume_db = -25.0
+autoplay = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 325)
+scale = Vector2(6, 5.98148)
+sprite_frames = SubResource("SpriteFrames_bo85m")
+autoplay = "default"
+frame = 13
+frame_progress = 1.0
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = 544.0
+offset_right = 2088.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_oakqr")
+theme_override_font_sizes/font_size = 56
+text = "Your cat sad you losed play again"
+
+[node name="menu_button" parent="Label" instance=ExtResource("4_vv75a")]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = 88.0
+offset_right = 301.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "MAIN MENU"
+scene = "res://scenes/main_menu.tscn"

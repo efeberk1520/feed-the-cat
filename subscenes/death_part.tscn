@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0lamlkyk1ytn"]
+
+[ext_resource type="Script" path="res://scripts/death_part.gd" id="1_6kjwv"]
+
+[node name="death part" type="Area3D"]
+script = ExtResource("1_6kjwv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

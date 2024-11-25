@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdpr4653rm2u1"]
+
+[ext_resource type="Texture2D" uid="uid://c1781jq0kj2t6" path="res://virus.png" id="1_x64lt"]
+[ext_resource type="Script" path="res://scripts/touch_screen_button.gd" id="2_yv0sd"]
+
+[node name="TouchScreenButton" type="TextureButton"]
+offset_left = 264.0
+offset_top = 184.0
+offset_right = 280.0
+offset_bottom = 200.0
+scale = Vector2(3.4037, 3.4037)
+texture_normal = ExtResource("1_x64lt")
+script = ExtResource("2_yv0sd")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

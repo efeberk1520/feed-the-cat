@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgpgbcd402nw"]
+
+[ext_resource type="Script" path="res://scripts/menus.gd" id="1_6xsc8"]
+[ext_resource type="FontFile" uid="uid://dw48qbo37lh83" path="res://fonts/Mystery Font.ttf" id="2_6q7v1"]
+[ext_resource type="Texture2D" uid="uid://but1605y3jp6v" path="res://happines.png" id="3_b00be"]
+[ext_resource type="Texture2D" uid="uid://cana8djvi5c2b" path="res://MONEY.png" id="4_286yp"]
+[ext_resource type="Texture2D" uid="uid://f2p1wpcxlpr6" path="res://cat food.png" id="5_5lvl1"]
+[ext_resource type="Texture2D" uid="uid://f74bj3qxupgt" path="res://power.png" id="6_7evpl"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6xsc8")
+
+[node name="money" type="Label" parent="."]
+visibility_layer = 512
+z_index = 1
+layout_mode = 0
+offset_left = 48.0
+offset_top = 16.0
+offset_right = 601.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6q7v1")
+theme_override_font_sizes/font_size = 56
+text = "money :  0"
+
+[node name="inf mode" type="Label" parent="."]
+visible = false
+visibility_layer = 512
+z_index = 1
+layout_mode = 0
+offset_left = 888.0
+offset_top = 16.0
+offset_right = 1399.0
+offset_bottom = 72.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6q7v1")
+theme_override_font_sizes/font_size = 56
+text = "INF MODE"
+
+[node name="cat happines" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 56.0
+offset_right = 1070.0
+offset_bottom = 112.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6q7v1")
+theme_override_font_sizes/font_size = 56
+text = "cat happines: 10"
+
+[node name="Happines" type="Sprite2D" parent="."]
+position = Vector2(24, 64)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_b00be")
+vframes = 3
+
+[node name="Money" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("4_286yp")
+
+[node name="catfood" type="Label" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 104.0
+offset_right = 696.0
+offset_bottom = 159.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6q7v1")
+theme_override_font_sizes/font_size = 56
+text = "cat food: 0"
+
+[node name="CatFood" type="Sprite2D" parent="."]
+position = Vector2(24, 112)
+scale = Vector2(2, 2)
+texture = ExtResource("5_5lvl1")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1096.0
+offset_top = 8.0
+offset_right = 1112.0
+offset_bottom = 24.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("6_7evpl")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

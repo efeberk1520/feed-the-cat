@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=3 uid="uid://sd4udcyi8c0q"]
+
+[ext_resource type="PackedScene" uid="uid://b1vpn61b44cnm" path="res://models/çalış.gltf" id="1_57vfu"]
+[ext_resource type="PackedScene" uid="uid://cgpgbcd402nw" path="res://subscenes/menus.tscn" id="1_hu8l5"]
+[ext_resource type="PackedScene" uid="uid://jfen0a1w8pjq" path="res://subscenes/player_2.tscn" id="2_afmq6"]
+[ext_resource type="PackedScene" uid="uid://dmtwbpug3ib6m" path="res://subscenes/tp.tscn" id="3_llwj0"]
+[ext_resource type="AudioStream" uid="uid://nxnby1haoo0s" path="res://sound/music/working.wav" id="4_mswx8"]
+[ext_resource type="PackedScene" uid="uid://bftpihdy036et" path="res://subscenes/mobile_controls.tscn" id="6_8fhn8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w6ati"]
+size = Vector3(7.25513, 0.2505, 6.25)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ln2pn"]
+sky_top_color = Color(1, 1, 1, 1)
+sky_horizon_color = Color(0.75, 0.854902, 1, 1)
+sky_energy_multiplier = 1.15
+ground_bottom_color = Color(0, 0.419608, 1, 1)
+ground_horizon_color = Color(0.75, 0.854902, 1, 1)
+
+[sub_resource type="Sky" id="Sky_3cuwc"]
+sky_material = SubResource("ProceduralSkyMaterial_ln2pn")
+
+[sub_resource type="Environment" id="Environment_0md4q"]
+background_mode = 2
+sky = SubResource("Sky_3cuwc")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gsbp5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yagyv"]
+albedo_color = Color(0.21, 0.104895, 0.0483, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g3egr"]
+
+[node name="work" type="Node3D"]
+
+[node name="Control" parent="." instance=ExtResource("1_hu8l5")]
+visibility_layer = 512
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_57vfu")]
+
+[node name="player_2" parent="." instance=ExtResource("2_afmq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09383, 0.194413)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="player_2"]
+stream = ExtResource("4_mswx8")
+volume_db = -25.0
+autoplay = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 3, 3)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 5.60336)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.999991, 1.38556e-13, 0, -1.38556e-13, 0.999991, 0.29847, -2.97522, -2.60726)
+shape = SubResource("BoxShape3D_w6ati")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 3.82137e-15, 0, -4.37114e-08, 1, 8.74228e-08, 1, 4.37114e-08, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0md4q")
+
+[node name="tp" parent="." instance=ExtResource("3_llwj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04967, 1.82563)
+text = "EXIT"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36923, 0)
+shape = SubResource("BoxShape3D_gsbp5")
+
+[node name="tp2" parent="." instance=ExtResource("3_llwj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0767902, -1.68255)
+text = "WORK"
+scene = "res://scenes/working.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tp2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36923, 0)
+shape = SubResource("BoxShape3D_gsbp5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0386908, 1.80165)
+material_override = SubResource("StandardMaterial3D_yagyv")
+mesh = SubResource("PlaneMesh_g3egr")
+
+[node name="mobile controls" parent="." instance=ExtResource("6_8fhn8")]
