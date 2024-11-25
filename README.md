@@ -1,1 +1,1 @@
-Exported version of the game : itch. io feed the cat(https://efeberk1520.itch.io/feed-the-cat)
+Exported version of the game : https://efeberk1520.itch.io/feed-the-cat
